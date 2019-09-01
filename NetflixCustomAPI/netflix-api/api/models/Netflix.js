@@ -3,6 +3,14 @@ module.exports = {
 		movieName: {
 		type: 'string', 
 		required: true
-		}
+		},
+
+		user: {
+            model: 'user'
+        },
+
+        isMovie: {
+        	type: 'boolean'
+        }
 	}
 }

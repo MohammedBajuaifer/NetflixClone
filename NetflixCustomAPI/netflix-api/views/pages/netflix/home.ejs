@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Netflix Clone</title>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+</head>
+
+<style>
+
+	.outer-container {
+		background-color: #ccc;
+	}
+
+	input[type=text] {
+	  width: 50%;
+	  padding: 12px 20px;
+	  margin: 8px 0;
+	  box-sizing: border-box;
+	}
+
+	form {
+		text-align: center;
+	}
+</style>
+<script>
+	function handleChange(event) {
+		console.log(event)
+		const isMovie = document.getElementById("isMovie").checked
+		console.log(isMovie)
+		if (isMovie) {
+			netflix.update({isMovie: isMovie.checked})
+		}
+	}
+
+</script>
+<body>
+
+	<div class="outer-container">
+		<div>
+			<form action="/create" method="POST">
+				<input type="text" name="movieNameBody" placeholder="Enter a Movie/Series name">
+				<input id="isMovie" type="checkbox" name="isMovie" onchange="handleChange(event)">
+				<input type="file" name="">
+				<button type="submit">Create</button>
+			</form>
+		</div>
+			
+
+		<% netflix.forEach( m => { %>
+		<div style="padding: 12px; margin: 12px; background-color= #fff;">
+			 <div style="font-weight: bold;"> <%= m.user.fullName %> </div>
+			<span> <%= m.movieName %> </span>
+		</div>
+		<% }) %>
+	</div>
+
+
+
+</body>
+</html>
