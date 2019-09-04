@@ -25,12 +25,9 @@
 </style>
 <script>
 	function handleChange(event) {
-		console.log(event)
+		// console.log(event)
 		const isMovie = document.getElementById("isMovie").checked
 		console.log(isMovie)
-		if (isMovie) {
-			netflix.update({isMovie: isMovie.checked})
-		}
 	}
 
 </script>
@@ -40,7 +37,7 @@
 		<div>
 			<form action="/create" method="POST">
 				<input type="text" name="movieNameBody" placeholder="Enter a Movie/Series name">
-				<input id="isMovie" type="checkbox" name="isMovie" onchange="handleChange(event)">
+				<input id="isMovie" type="checkbox" name="isMovie" onchange="handleChange(event)"> 
 				<input type="file" name="">
 				<button type="submit">Create</button>
 			</form>
