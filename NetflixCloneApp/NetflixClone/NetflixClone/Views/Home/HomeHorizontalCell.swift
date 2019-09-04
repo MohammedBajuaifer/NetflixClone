@@ -10,10 +10,15 @@ import UIKit
 
 class HomeHorizontalCell: UICollectionViewCell {
     
+    let label = UILabel()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         // UI Setup
+        label.text = "This"
+        addSubview(label)
+        label.centerInSuperview()
     }
     
     required init?(coder aDecoder: NSCoder) {
