@@ -1,16 +1,19 @@
 module.exports = {
 	attributes: {
 		movieName: {
-		type: 'string', 
-		required: true
+			type: 'string', 
+			required: true
 		},
-
+		imageUrl: {
+			type: 'string'
+		},
 		user: {
             model: 'user'
         },
 
         isMovie: {
-        	type: 'boolean'
+        	type: 'boolean',
+        	defaultsTo: true
         }
 	}
 }
