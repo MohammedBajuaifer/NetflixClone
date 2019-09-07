@@ -27,30 +27,8 @@ class HomeHorizontalController: MainListController {
         if let layout = collectionViewLayout as? UICollectionViewFlowLayout {
             layout.scrollDirection = .horizontal
         }
-        fetch()
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "hello", style: .plain, target: self, action: #selector(fetch))
     }
     
-    @objc func fetch() {
-        
-        let url = "http://localhost:1337/home"
-        
-        Alamofire.request(url).validate(statusCode: 200..<300).responseData { (dataResp) in
-            if let error = dataResp.error {
-                print(error)
-                return
-            }
-            let decoder = JSONDecoder()
-            do {
-                let netflix = try decoder.decode([Netflix].self, from: dataResp.data ?? Data())
-                self.netflix = netflix
-                self.collectionView.reloadData()
-            } catch {
-                print(error.localizedDescription)
-            }
-            print("Worked")
-        }
-    }
 }
 
 // MARK: - DataSource & Delegates
@@ -65,7 +43,7 @@ extension HomeHorizontalController {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! HomeHorizontalCell
         cell.backgroundColor = .yellow
         let netflixItem = netflix[indexPath.item]
-        cell.label.text = netflixItem.movieName
+        cell.label.kf.setImage(with: URL(string: netflixItem.imageUrl))
         return cell
     }
 }
@@ -75,13 +53,17 @@ extension HomeHorizontalController {
 extension HomeHorizontalController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return .init(width: 150, height: 250)
+        return .init(width: 120, height: 180)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 10
+        return 5
     }
-    
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 5
+    }
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return .init(top: 5, left: 5, bottom: 5, right: 5)
     }

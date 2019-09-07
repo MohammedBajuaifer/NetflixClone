@@ -8,11 +8,12 @@
 
 import UIKit
 import Alamofire
-
+import Kingfisher
 
 struct Netflix: Decodable {
     let createdAt: Int
     let movieName: String
+    let imageUrl: String
 }
 class HomeController: MainListController {
     
@@ -21,7 +22,7 @@ class HomeController: MainListController {
     fileprivate let cellId = "cellId"
     
     let loginBtn = UIBarButtonItem()
-    
+    var netflix = [Netflix]()
     // MARK: - viewDidLoad
     
     override func viewDidLoad() {
@@ -37,6 +38,30 @@ class HomeController: MainListController {
         loginBtn.title = "login"
         
         navigationItem.leftBarButtonItem = loginBtn
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "hello", style: .plain, target: self, action: #selector(fetch))
+    }
+    
+    
+    @objc func fetch() {
+        
+        let url = "http://localhost:1337/home"
+        
+        Alamofire.request(url).validate(statusCode: 200..<300).responseData { (dataResp) in
+            if let error = dataResp.error {
+                print(error)
+                return
+            }
+            let decoder = JSONDecoder()
+            do {
+                let netflix = try decoder.decode([Netflix].self, from: dataResp.data ?? Data())
+                self.netflix = netflix
+                self.collectionView.reloadData()
+            } catch {
+                print(error.localizedDescription)
+            }
+            print("Worked")
+        }
     }
     
     @objc func handleLoginBtn() {
@@ -61,13 +86,13 @@ class HomeController: MainListController {
 extension HomeController {
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        return 2
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
-//        cell.backgroundColor = .red
-//        cell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! HomeViewCell
+        cell.homeHorizontalController.netflix = self.netflix
+        cell.homeHorizontalController.collectionView.reloadData()
         return cell
     }
 }
@@ -77,6 +102,6 @@ extension HomeController {
 extension HomeController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return .init(width: view.frame.width, height: 300)
+        return .init(width: view.frame.width, height: 200)
     }
 }
