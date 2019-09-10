@@ -28,12 +28,13 @@ class HomeController: MainListController {
     }()
     
     // MARK: - viewDidLoad
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         collectionView.backgroundColor = #colorLiteral(red: 0.103221871, green: 0.10324689, blue: 0.1032185927, alpha: 1)
         collectionView.register(HomeViewCell.self, forCellWithReuseIdentifier: cellId)
+        collectionView.alwaysBounceVertical = true
+        collectionView.bounces = true
         navigationItem.title = "NETFLIX"
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.init(red: 0.8980392157, green: 0.03921568627, blue: 0.07450980392, alpha: 1), NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 24)]
         
@@ -48,7 +49,7 @@ class HomeController: MainListController {
         fetch()
     }
     
-
+    
     @objc func handleLoginBtn() {
         self.present(LoginController(), animated: true, completion: nil)
     }
@@ -101,10 +102,13 @@ extension HomeController {
         let dispatchGroup = DispatchGroup()
         var group1 : Netflix?
         var group2 : Netflix?
+        var group3 : Netflix?
+        var group4 : Netflix?
+        var group5 : Netflix?
         
         // Fetching Marval Universe
         dispatchGroup.enter()
-        Service.shared.popular { (netflix, error) in
+        Service.shared.fetchMarvelUniverse { (netflix, error) in
             print("Fetching Marval Universe...")
             dispatchGroup.leave()
             group1 = netflix
@@ -112,10 +116,34 @@ extension HomeController {
         
         // Fetching DC Comics
         dispatchGroup.enter()
-        Service.shared.fetchTopRated { (netflix, error) in
+        Service.shared.fetchComics { (netflix, error) in
             print("Fetching DC Comics...")
             dispatchGroup.leave()
             group2 = netflix
+        }
+        
+        // Fetching The Avengers
+        dispatchGroup.enter()
+        Service.shared.fetchTheAvengers { (netflix, error) in
+            print("Fetching The Avengers...")
+            dispatchGroup.leave()
+            group3 = netflix
+        }
+        
+        // Fetching Top Grossing Films
+        dispatchGroup.enter()
+        Service.shared.fetchTopGrossingFilms { (netflix, error) in
+            print("Fetching Top Grossing Films...")
+            dispatchGroup.leave()
+            group4 = netflix
+        }
+        
+        // Fetching Best Horror Movies
+        dispatchGroup.enter()
+        Service.shared.fetchBestHorrorMovies { (netflix, error) in
+            print("Fetching Best Horror Movies...")
+            dispatchGroup.leave()
+            group5 = netflix
         }
         
         // Completion
@@ -131,6 +159,19 @@ extension HomeController {
             if let group = group2 {
                 self.netflix.append(group)
             }
+            
+            if let group = group3 {
+                self.netflix.append(group)
+            }
+            
+            if let group = group4 {
+                self.netflix.append(group)
+            }
+            
+            if let group = group5 {
+                self.netflix.append(group)
+            }
+            
             self.collectionView.reloadData()
         }
     }

@@ -47,4 +47,20 @@ class Service: NSObject {
         let urlString = "https://api.themoviedb.org/4/list/3?page=1&api_key=\(apiKey)"
         fetchGenericJSONData(urlString: urlString, completion: completion)
     }
+    
+    func fetchTheAvengers(completion: @escaping (Netflix?, Error?) -> ()) {
+        let urlString = "https://api.themoviedb.org/4/list/5?page=1&api_key=\(apiKey)"
+        fetchGenericJSONData(urlString: urlString, completion: completion)
+    }
+    
+    func fetchTopGrossingFilms(completion: @escaping (Netflix?, Error?) -> ()) {
+        let urlString = "https://api.themoviedb.org/4/list/10?page=1&api_key=\(apiKey)"
+        fetchGenericJSONData(urlString: urlString, completion: completion)
+    }
+    
+    func fetchBestHorrorMovies(completion: @escaping (Netflix?, Error?) -> ()) {
+        let urlString = "https://api.themoviedb.org/4/list/44?page=1&api_key=\(apiKey)"
+        fetchGenericJSONData(urlString: urlString, completion: completion)
+
+    }
 }
