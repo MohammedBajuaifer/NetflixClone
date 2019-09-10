@@ -10,22 +10,23 @@ import UIKit
 
 class HomeViewCell: UICollectionViewCell {
     
+    
+    let title = UILabel()
     let homeHorizontalController = HomeHorizontalController()
     
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-//        backgroundColor = .yellow
-        
+        title.textColor = .white
+        title.font = UIFont.boldSystemFont(ofSize: 14)
+        addSubview(title)
         addSubview(homeHorizontalController.view)
         
-        homeHorizontalController.view.translatesAutoresizingMaskIntoConstraints = false
         
-        homeHorizontalController.view.topAnchor.constraint(equalTo: topAnchor, constant: 10).isActive = true
-          homeHorizontalController.view.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10).isActive = true
-          homeHorizontalController.view.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10).isActive = true
-          homeHorizontalController.view.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10).isActive = true
+        title.anchor(top: topAnchor, leading: leadingAnchor, bottom: homeHorizontalController.view.topAnchor, trailing: nil, padding: .init(top: 10, left: 10, bottom: 10, right: 0))
+        
+        homeHorizontalController.view.anchor(top: title.bottomAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top: 10, left: 10, bottom: 10, right: 10))
     }
     
     required init?(coder aDecoder: NSCoder) {
