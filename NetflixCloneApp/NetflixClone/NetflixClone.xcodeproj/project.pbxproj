@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		9D71D63F82DC7884E18F8C55 /* Pods_NetflixClone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92B3F899ADBE43F2252BDA64 /* Pods_NetflixClone.framework */; };
+		DD0065D523267D1A00095028 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0065D423267D1A00095028 /* Service.swift */; };
+		DD0065D72327CCDE00095028 /* Netflix.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0065D62327CCDE00095028 /* Netflix.swift */; };
 		DD372C18231D66D000144828 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD372C17231D66D000144828 /* AppDelegate.swift */; };
 		DD372C1A231D66D000144828 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD372C19231D66D000144828 /* SceneDelegate.swift */; };
 		DD372C1E231D66D100144828 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD372C1D231D66D100144828 /* Assets.xcassets */; };
@@ -30,6 +32,8 @@
 		0235CCFC8DB1BDE2CAD219D1 /* Pods-NetflixClone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetflixClone.debug.xcconfig"; path = "Target Support Files/Pods-NetflixClone/Pods-NetflixClone.debug.xcconfig"; sourceTree = "<group>"; };
 		92B3F899ADBE43F2252BDA64 /* Pods_NetflixClone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NetflixClone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		941189D571C1D73CDC209D3B /* Pods-NetflixClone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetflixClone.release.xcconfig"; path = "Target Support Files/Pods-NetflixClone/Pods-NetflixClone.release.xcconfig"; sourceTree = "<group>"; };
+		DD0065D423267D1A00095028 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		DD0065D62327CCDE00095028 /* Netflix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Netflix.swift; sourceTree = "<group>"; };
 		DD372C14231D66D000144828 /* NetflixClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetflixClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD372C17231D66D000144828 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD372C19231D66D000144828 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -137,6 +141,7 @@
 		DD372C2C231D689E00144828 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				DD0065D62327CCDE00095028 /* Netflix.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -171,6 +176,7 @@
 				DD4F7D12231EFAB00070F87D /* UIView+Layout.swift */,
 				DD4F7D11231EFAB00070F87D /* VerticalStackView.swift */,
 				DD4F7D15231F10CF0070F87D /* CustomTextField.swift */,
+				DD0065D423267D1A00095028 /* Service.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -309,8 +315,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD372C18231D66D000144828 /* AppDelegate.swift in Sources */,
+				DD0065D523267D1A00095028 /* Service.swift in Sources */,
 				DD372C1A231D66D000144828 /* SceneDelegate.swift in Sources */,
 				DD692B15231EADEB00FEE549 /* HomeViewCell.swift in Sources */,
+				DD0065D72327CCDE00095028 /* Netflix.swift in Sources */,
 				DD692B0E231EAD2800FEE549 /* MainListController.swift in Sources */,
 				DD4F7D0F231EFA710070F87D /* LoginController.swift in Sources */,
 				DD4F7D1823202E740070F87D /* SignupController.swift in Sources */,

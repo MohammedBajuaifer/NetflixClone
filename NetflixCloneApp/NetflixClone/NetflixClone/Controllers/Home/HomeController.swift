@@ -10,11 +10,6 @@ import UIKit
 import Alamofire
 import Kingfisher
 
-struct Netflix: Decodable {
-    let createdAt: Int
-    let movieName: String
-    let imageUrl: String
-}
 class HomeController: MainListController {
     
     // MARK: - Properties
@@ -23,6 +18,15 @@ class HomeController: MainListController {
     
     let loginBtn = UIBarButtonItem()
     var netflix = [Netflix]()
+    
+    fileprivate let activityIndicator: UIActivityIndicatorView = {
+        let av = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.medium)
+        av.color = .white
+        av.startAnimating()
+        av.hidesWhenStopped = true
+        return av
+    }()
+    
     // MARK: - viewDidLoad
     
     override func viewDidLoad() {
@@ -39,31 +43,12 @@ class HomeController: MainListController {
         
         navigationItem.leftBarButtonItem = loginBtn
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "hello", style: .plain, target: self, action: #selector(fetch))
+        view.addSubview(activityIndicator)
+        activityIndicator.fillSuperview()
+        fetch()
     }
     
-    
-    @objc func fetch() {
-        
-        let url = "http://localhost:1337/home"
-        
-        Alamofire.request(url).validate(statusCode: 200..<300).responseData { (dataResp) in
-            if let error = dataResp.error {
-                print(error)
-                return
-            }
-            let decoder = JSONDecoder()
-            do {
-                let netflix = try decoder.decode([Netflix].self, from: dataResp.data ?? Data())
-                self.netflix = netflix
-                self.collectionView.reloadData()
-            } catch {
-                print(error.localizedDescription)
-            }
-            print("Worked")
-        }
-    }
-    
+
     @objc func handleLoginBtn() {
         self.present(LoginController(), animated: true, completion: nil)
     }
@@ -86,12 +71,15 @@ class HomeController: MainListController {
 extension HomeController {
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 2
+        return netflix.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! HomeViewCell
-        cell.homeHorizontalController.netflix = self.netflix
+        
+        let netflixOne = netflix[indexPath.item]
+        cell.title.text = netflixOne.name
+        cell.homeHorizontalController.netflix = netflixOne
         cell.homeHorizontalController.collectionView.reloadData()
         return cell
     }
@@ -103,5 +91,47 @@ extension HomeController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return .init(width: view.frame.width, height: 200)
+    }
+}
+
+//MARK: - Fetching data from API
+extension HomeController {
+    func fetch() {
+        
+        let dispatchGroup = DispatchGroup()
+        var group1 : Netflix?
+        var group2 : Netflix?
+        
+        // Fetching Marval Universe
+        dispatchGroup.enter()
+        Service.shared.popular { (netflix, error) in
+            print("Fetching Marval Universe...")
+            dispatchGroup.leave()
+            group1 = netflix
+        }
+        
+        // Fetching DC Comics
+        dispatchGroup.enter()
+        Service.shared.fetchTopRated { (netflix, error) in
+            print("Fetching DC Comics...")
+            dispatchGroup.leave()
+            group2 = netflix
+        }
+        
+        // Completion
+        dispatchGroup.notify(queue: .main){
+            print("Finish fetching all Tasks...")
+            
+            self.activityIndicator.stopAnimating()
+            
+            if let group = group1 {
+                self.netflix.append(group)
+            }
+            
+            if let group = group2 {
+                self.netflix.append(group)
+            }
+            self.collectionView.reloadData()
+        }
     }
 }

@@ -14,7 +14,7 @@ class HomeHorizontalController: MainListController {
     // MARK: - Properties
     
     fileprivate let cellId = "cellId"
-    var netflix = [Netflix]()
+    var netflix: Netflix?
     
     // MARK: - viewDidLoad
     
@@ -28,7 +28,6 @@ class HomeHorizontalController: MainListController {
             layout.scrollDirection = .horizontal
         }
     }
-    
 }
 
 // MARK: - DataSource & Delegates
@@ -36,14 +35,13 @@ class HomeHorizontalController: MainListController {
 extension HomeHorizontalController {
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return netflix.count
+        return netflix?.results.count ?? 0
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! HomeHorizontalCell
-        cell.backgroundColor = .yellow
-        let netflixItem = netflix[indexPath.item]
-        cell.label.kf.setImage(with: URL(string: netflixItem.imageUrl))
+        let netflixItem = netflix?.results[indexPath.item]
+        cell.label.kf.setImage(with: URL(string: "https://image.tmdb.org/t/p/w500/\(netflixItem?.poster_path ?? "")"))
         return cell
     }
 }
