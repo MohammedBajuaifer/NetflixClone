@@ -10,6 +10,8 @@
 		9D71D63F82DC7884E18F8C55 /* Pods_NetflixClone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92B3F899ADBE43F2252BDA64 /* Pods_NetflixClone.framework */; };
 		DD0065D523267D1A00095028 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0065D423267D1A00095028 /* Service.swift */; };
 		DD0065D72327CCDE00095028 /* Netflix.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0065D62327CCDE00095028 /* Netflix.swift */; };
+		DD0065DE232858DB00095028 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0065DD232858DB00095028 /* SearchController.swift */; };
+		DD0065E12328737900095028 /* SearchViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0065E02328737900095028 /* SearchViewCell.swift */; };
 		DD372C18231D66D000144828 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD372C17231D66D000144828 /* AppDelegate.swift */; };
 		DD372C1A231D66D000144828 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD372C19231D66D000144828 /* SceneDelegate.swift */; };
 		DD372C1E231D66D100144828 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD372C1D231D66D100144828 /* Assets.xcassets */; };
@@ -26,6 +28,8 @@
 		DD692B15231EADEB00FEE549 /* HomeViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD692B14231EADEB00FEE549 /* HomeViewCell.swift */; };
 		DD692B17231EADF700FEE549 /* HomeHorizontalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD692B16231EADF700FEE549 /* HomeHorizontalCell.swift */; };
 		DD692B1C231EAE9800FEE549 /* HomeHorizontalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD692B1B231EAE9800FEE549 /* HomeHorizontalController.swift */; };
+		DD8871FA232945EA00454D50 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DD8871F9232945EA00454D50 /* Roboto-Bold.ttf */; };
+		DD8871FD2329461000454D50 /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DD8871FC2329461000454D50 /* Roboto-Black.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +38,8 @@
 		941189D571C1D73CDC209D3B /* Pods-NetflixClone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetflixClone.release.xcconfig"; path = "Target Support Files/Pods-NetflixClone/Pods-NetflixClone.release.xcconfig"; sourceTree = "<group>"; };
 		DD0065D423267D1A00095028 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		DD0065D62327CCDE00095028 /* Netflix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Netflix.swift; sourceTree = "<group>"; };
+		DD0065DD232858DB00095028 /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
+		DD0065E02328737900095028 /* SearchViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewCell.swift; sourceTree = "<group>"; };
 		DD372C14231D66D000144828 /* NetflixClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetflixClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD372C17231D66D000144828 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD372C19231D66D000144828 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -52,6 +58,8 @@
 		DD692B14231EADEB00FEE549 /* HomeViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewCell.swift; sourceTree = "<group>"; };
 		DD692B16231EADF700FEE549 /* HomeHorizontalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHorizontalCell.swift; sourceTree = "<group>"; };
 		DD692B1B231EAE9800FEE549 /* HomeHorizontalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHorizontalController.swift; sourceTree = "<group>"; };
+		DD8871F9232945EA00454D50 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
+		DD8871FC2329461000454D50 /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Black.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +91,22 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		DD0065DA232858AA00095028 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				DD0065DD232858DB00095028 /* SearchController.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		DD0065DF2328735C00095028 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				DD0065E02328737900095028 /* SearchViewCell.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
 		DD372C0B231D66D000144828 = {
 			isa = PBXGroup;
 			children = (
@@ -104,6 +128,7 @@
 		DD372C16231D66D000144828 /* NetflixClone */ = {
 			isa = PBXGroup;
 			children = (
+				DD8871FB2329460900454D50 /* Fonts */,
 				DD4F7D10231EFA920070F87D /* Helpers */,
 				DD372C2E231D68B000144828 /* API */,
 				DD372C2C231D689E00144828 /* Models */,
@@ -130,6 +155,7 @@
 		DD372C2B231D689500144828 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				DD0065DA232858AA00095028 /* Search */,
 				DD4F7D0D231EFA620070F87D /* Auth */,
 				DD692B18231EAE6500FEE549 /* Home */,
 				DD372C2F231D68F700144828 /* MainTabBarController.swift */,
@@ -149,6 +175,7 @@
 		DD372C2D231D68AC00144828 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				DD0065DF2328735C00095028 /* Search */,
 				DD692B0F231EADB300FEE549 /* Home */,
 			);
 			path = Views;
@@ -197,6 +224,15 @@
 				DD692B1B231EAE9800FEE549 /* HomeHorizontalController.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		DD8871FB2329460900454D50 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				DD8871F9232945EA00454D50 /* Roboto-Bold.ttf */,
+				DD8871FC2329461000454D50 /* Roboto-Black.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,7 +297,9 @@
 			files = (
 				DD372C24231D66D100144828 /* LaunchScreen.storyboard in Resources */,
 				DD372C21231D66D100144828 /* Preview Assets.xcassets in Resources */,
+				DD8871FA232945EA00454D50 /* Roboto-Bold.ttf in Resources */,
 				DD372C1E231D66D100144828 /* Assets.xcassets in Resources */,
+				DD8871FD2329461000454D50 /* Roboto-Black.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -325,6 +363,8 @@
 				DD372C30231D68F700144828 /* MainTabBarController.swift in Sources */,
 				DD4F7D14231EFAB00070F87D /* UIView+Layout.swift in Sources */,
 				DD692B1C231EAE9800FEE549 /* HomeHorizontalController.swift in Sources */,
+				DD0065E12328737900095028 /* SearchViewCell.swift in Sources */,
+				DD0065DE232858DB00095028 /* SearchController.swift in Sources */,
 				DD4F7D16231F10CF0070F87D /* CustomTextField.swift in Sources */,
 				DD692B17231EADF700FEE549 /* HomeHorizontalCell.swift in Sources */,
 				DD692B0C231EACBF00FEE549 /* HomeController.swift in Sources */,

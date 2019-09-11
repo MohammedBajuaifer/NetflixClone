@@ -20,24 +20,27 @@ class HomeController: MainListController {
     var netflix = [Netflix]()
     
     fileprivate let activityIndicator: UIActivityIndicatorView = {
-        let av = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.medium)
+        let av = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.large)
         av.color = .white
         av.startAnimating()
         av.hidesWhenStopped = true
         return av
     }()
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        collectionView.backgroundColor = #colorLiteral(red: 0.103221871, green: 0.10324689, blue: 0.1032185927, alpha: 1)
+        collectionView.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         collectionView.register(HomeViewCell.self, forCellWithReuseIdentifier: cellId)
         collectionView.alwaysBounceVertical = true
         collectionView.bounces = true
         navigationItem.title = "NETFLIX"
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.init(red: 0.8980392157, green: 0.03921568627, blue: 0.07450980392, alpha: 1), NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 24)]
-        
         loginBtn.target = self
         loginBtn.action = #selector(handleLoginBtn)
         loginBtn.title = "login"
@@ -53,18 +56,6 @@ class HomeController: MainListController {
     @objc func handleLoginBtn() {
         self.present(LoginController(), animated: true, completion: nil)
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        HTTPCookieStorage.shared.cookies?.forEach({ (cookie) in
-            print(cookie)
-            if cookie.value == "" {
-                print("no session")
-                loginBtn.title = "Login"
-            } else {
-                loginBtn.title = "logout"
-            }
-        })
-    }
 }
 
 // MARK: - DataSource & Delegates
@@ -79,7 +70,11 @@ extension HomeController {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! HomeViewCell
         
         let netflixOne = netflix[indexPath.item]
-        cell.title.text = netflixOne.name
+        if let name  = netflixOne.name {
+            cell.title.text = name
+        } else {
+            cell.title.text = "Popular on Netflix"
+        }
         cell.homeHorizontalController.netflix = netflixOne
         cell.homeHorizontalController.collectionView.reloadData()
         return cell
@@ -91,7 +86,7 @@ extension HomeController {
 extension HomeController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return .init(width: view.frame.width, height: 200)
+        return .init(width: view.frame.width, height: 240)
     }
 }
 
