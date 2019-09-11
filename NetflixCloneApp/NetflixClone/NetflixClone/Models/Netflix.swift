@@ -9,12 +9,12 @@
 import Foundation
 
 struct Netflix: Decodable {
-    let name: String
+    let name: String?
     let results: [NetflixResults]
 }
 
 struct NetflixResults: Decodable {
-    let poster_path: String
-    let media_type: String
-    let title: String
+    let poster_path: String?
+    let media_type: String?
+    let title: String?
 }
