@@ -19,14 +19,15 @@ class HomeViewCell: UICollectionViewCell {
         super.init(frame: frame)
         
         title.textColor = .white
-        title.font = UIFont.boldSystemFont(ofSize: 14)
+        title.font = UIFont(name: "Roboto-Bold", size: 16)
+//        title.font = UIFont.boldSystemFont(ofSize: 18)
         addSubview(title)
         addSubview(homeHorizontalController.view)
         
         
-        title.anchor(top: topAnchor, leading: leadingAnchor, bottom: homeHorizontalController.view.topAnchor, trailing: nil, padding: .init(top: 10, left: 10, bottom: 10, right: 0))
+        title.anchor(top: topAnchor, leading: leadingAnchor, bottom: homeHorizontalController.view.topAnchor, trailing: nil, padding: .init(top: 10, left: 10, bottom: 5, right: 0))
         
-        homeHorizontalController.view.anchor(top: title.bottomAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top: 10, left: 10, bottom: 10, right: 10))
+        homeHorizontalController.view.anchor(top: title.bottomAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top: 5, left: 10, bottom: 10, right: 10))
     }
     
     required init?(coder aDecoder: NSCoder) {
