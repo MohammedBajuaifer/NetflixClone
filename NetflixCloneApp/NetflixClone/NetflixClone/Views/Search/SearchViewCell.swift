@@ -10,10 +10,19 @@ import UIKit
 
 class SearchViewCell: UICollectionViewCell {
     
+    let imageView = UIImageView()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
+    
         // UI Setup
+        
+        addSubview(imageView)
+        
+        imageView.fillSuperview()
     }
     
     required init?(coder aDecoder: NSCoder) {
