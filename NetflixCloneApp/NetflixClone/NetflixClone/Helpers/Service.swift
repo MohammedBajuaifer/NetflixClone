@@ -38,8 +38,10 @@ class Service: NSObject {
     
     // Fetching Marvel Universe
     func fetchMarvelUniverse(completion: @escaping (Netflix?, Error?) -> ()) {
+//        https://api.themoviedb.org/3/tv/top_rated?api_key=\(apiKey)&language=en-US&page=1
+            let url = "https://api.themoviedb.org/3/tv/top_rated?api_key=\(apiKey)&language=en-US&page=1"
            let urlString = "https://api.themoviedb.org/4/list/1?page=1&api_key=\(apiKey)"
-           fetchGenericJSONData(urlString: urlString, completion: completion)
+           fetchGenericJSONData(urlString: url, completion: completion)
     }
     
     // Fetching DC Comics
@@ -61,6 +63,11 @@ class Service: NSObject {
     func fetchBestHorrorMovies(completion: @escaping (Netflix?, Error?) -> ()) {
         let urlString = "https://api.themoviedb.org/4/list/44?page=1&api_key=\(apiKey)"
         fetchGenericJSONData(urlString: urlString, completion: completion)
-
+    }
+    
+    func searchMedia(searchTerm: String, completion: @escaping (Netflix?, Error?) -> ()) {
+        let urlString = "https://api.themoviedb.org/3/search/movie?api_key=\(apiKey)&language=en-US&query=\(searchTerm)&page=2&include_adult=false".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+      
+        fetchGenericJSONData(urlString: urlString!, completion: completion)
     }
 }
