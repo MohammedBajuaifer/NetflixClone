@@ -10,11 +10,9 @@ import Foundation
 
 struct Netflix: Decodable {
     let name: String?
-    let results: [NetflixResults]
+    let results: [Result]
 }
 
-struct NetflixResults: Decodable {
-    let poster_path: String?
-    let media_type: String?
-    let title: String?
-}
+struct Season: Decodable {}
+
+
