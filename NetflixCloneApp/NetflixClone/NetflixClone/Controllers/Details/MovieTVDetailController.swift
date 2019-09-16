@@ -13,7 +13,7 @@ class MovieTVDetailController: MainListController {
     // MARK: - Properties
     
     fileprivate let cellId = "cellId"
-    var result: NetflixResults?
+    var result: Result?
     fileprivate let movieTvId: Int
     // MARK: - viewDidLoad
     
@@ -62,8 +62,6 @@ extension MovieTVDetailController {
 
         if let title = result?.title {
             cell.movieTVTitle.text = title
-        } else {
-            cell.movieTVTitle.text = result?.name
         }
         
 //        let firstAirDate = result?.firstAirDate?.toDate(withFormat: "yyyy-MM-dd")
@@ -91,9 +89,9 @@ extension MovieTVDetailController {
 
         if let castNames = castNames, let crewNames = crewNames,  castNames.count >= 1 &&  crewNames.count >= 1 {
             let names = crewNames.prefix(8)
-            cell.castsInfo.text = "Casts: \(castNames.joined(separator: ", "))\n\nCrew: \(names.joined(separator: ", "))"
+            cell.castsInfo.text = "Casts: \(castNames.joined(separator: ", ")).\n\nCrew: \(names.joined(separator: ", "))."
         } else {
-            cell.castsInfo.text = "Casts: \(castNames?.joined(separator: ", ") ?? "")\n"
+            cell.castsInfo.text = "Casts: \(castNames?.joined(separator: ", ") ?? "")."
         }
 
         cell.overview.text = result?.overview ?? "No overview"
