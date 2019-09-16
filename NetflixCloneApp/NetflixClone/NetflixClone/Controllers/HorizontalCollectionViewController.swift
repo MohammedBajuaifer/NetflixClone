@@ -1,21 +1,19 @@
 //
-//  MainListController.swift
+//  HorizontalCollectionViewController.swift
 //  NetflixClone
 //
-//  Created by Moe on 03/09/2019.
+//  Created by Moe on 12/09/2019.
 //  Copyright © 2019 Mohammed salem bajuaifer. All rights reserved.
 //
 
+
 import UIKit
 
-class MainListController: UICollectionViewController {
+class HorizontalCollectionViewController: UICollectionViewController {
     
     
     init() {
         super.init(collectionViewLayout: UICollectionViewFlowLayout())
-//        collectionView.alwaysBounceVertical = true
-//        collectionView.bounces = true
-        collectionView.showsVerticalScrollIndicator = false
         collectionView.showsHorizontalScrollIndicator = false
     }
     
