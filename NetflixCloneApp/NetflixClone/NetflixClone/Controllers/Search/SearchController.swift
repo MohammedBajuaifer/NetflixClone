@@ -14,7 +14,7 @@ class SearchController: MainListController, UISearchBarDelegate{
     
     fileprivate let cellId = "cellId"
     var timer: Timer? // used in searchbar to perform delay
-    var results = [NetflixResults]()
+    var results = [Result]()
     fileprivate let activityIndicator: UIActivityIndicatorView = {
         let av = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.large)
         av.color = .white
@@ -27,11 +27,9 @@ class SearchController: MainListController, UISearchBarDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        collectionView.backgroundColor = .clear
+        collectionView.backgroundColor = #colorLiteral(red: 0.09331475943, green: 0.09813781828, blue: 0.1023981199, alpha: 1)
         collectionView.register(SearchViewCell.self, forCellWithReuseIdentifier: cellId)
         navigationItem.title = "NETFLIX"
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.init(red: 0.8980392157, green: 0.03921568627, blue: 0.07450980392, alpha: 1), NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 24)]
-      
         searchController()
     }
     
@@ -50,8 +48,8 @@ class SearchController: MainListController, UISearchBarDelegate{
         
         // Colors
         let textFieldInsideSearchBar = searchController.searchBar.value(forKey: "searchField") as? UITextField
-        textFieldInsideSearchBar?.textColor = UIColor.white
-        searchController.searchBar.tintColor = #colorLiteral(red: 0.3836292624, green: 0.4125564396, blue: 0.4528499246, alpha: 1)
+        textFieldInsideSearchBar?.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        searchController.searchBar.tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         
     }
     
@@ -85,12 +83,23 @@ extension SearchController {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! SearchViewCell
         
         let result = results[indexPath.item]
-        if let image = result.poster_path {
+        if let image = result.poster {
             cell.imageView.kf.setImage(with: URL(string: "https://image.tmdb.org/t/p/w500/\(image)"))
+        } else {
+            cell.imageView.image = #imageLiteral(resourceName: "home")
         }
         return cell
     }
     
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let result = results[indexPath.item]
+        
+        let movieTVDetailController = MovieTVDetailController(movieTvId: result.id)
+        
+        movieTVDetailController.result = result
+        self.present(movieTVDetailController, animated: true)
+    }
 }
 
 // MARK: - Delegate Flow Layout
