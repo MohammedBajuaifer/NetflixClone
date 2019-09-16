@@ -32,6 +32,7 @@ class MainTabBarController: UITabBarController {
         navController.tabBarItem.title = title
         
         navController.navigationBar.barTintColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        navController.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.init(red: 0.8980392157, green: 0.03921568627, blue: 0.07450980392, alpha: 1), NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 24)]
         
         tabBar.barTintColor = .black
         tabBar.tintColor = .white
