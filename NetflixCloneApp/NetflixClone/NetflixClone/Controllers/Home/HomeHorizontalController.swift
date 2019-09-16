@@ -9,12 +9,14 @@
 import UIKit
 import Alamofire
 
-class HomeHorizontalController: MainListController {
+class HomeHorizontalController: HorizontalCollectionViewController {
     
     // MARK: - Properties
     
     fileprivate let cellId = "cellId"
     var netflix: Netflix?
+    
+    var didSelectHandler: ((Result) -> ())?
     
     // MARK: - viewDidLoad
     
@@ -40,8 +42,15 @@ extension HomeHorizontalController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! HomeHorizontalCell
         let netflixItem = netflix?.results[indexPath.item]
-        cell.label.kf.setImage(with: URL(string: "https://image.tmdb.org/t/p/w500/\(netflixItem?.poster_path ?? "")"))
+        cell.label.kf.setImage(with: URL(string: "https://image.tmdb.org/t/p/w500/\(netflixItem?.poster ?? "")"))
         return cell
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let results = netflix?.results[indexPath.item] else { print("nono")
+            return
+        }
+        didSelectHandler?(results)
     }
 }
 
