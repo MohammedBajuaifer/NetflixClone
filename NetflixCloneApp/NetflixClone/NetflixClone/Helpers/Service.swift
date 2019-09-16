@@ -36,38 +36,40 @@ class Service: NSObject {
         }.resume()
     }
     
-    // Fetching Marvel Universe
-    func fetchMarvelUniverse(completion: @escaping (Netflix?, Error?) -> ()) {
-//        https://api.themoviedb.org/3/tv/top_rated?api_key=\(apiKey)&language=en-US&page=1
-            let url = "https://api.themoviedb.org/3/tv/top_rated?api_key=\(apiKey)&language=en-US&page=1"
-           let urlString = "https://api.themoviedb.org/4/list/1?page=1&api_key=\(apiKey)"
-           fetchGenericJSONData(urlString: url, completion: completion)
+    // Fetching Top Rated
+    func fetchTopRated(completion: @escaping (Netflix?, Error?) -> ()) {
+            let urlString = "https://api.themoviedb.org/3/tv/top_rated?api_key=\(apiKey)&language=en-US&page=1"
+           fetchGenericJSONData(urlString: urlString, completion: completion)
     }
     
-    // Fetching DC Comics
-    func fetchComics(completion: @escaping (Netflix?, Error?) -> ()) {
-        let urlString = "https://api.themoviedb.org/4/list/3?page=1&api_key=\(apiKey)"
+    // Fetching OnTheAir
+    func fetchOnTheAir(completion: @escaping (Netflix?, Error?) -> ()) {
+        let urlString = "https://api.themoviedb.org/3/tv/on_the_air?api_key=\(apiKey)&language=en-US&page=2"
         fetchGenericJSONData(urlString: urlString, completion: completion)
     }
     
-    func fetchTheAvengers(completion: @escaping (Netflix?, Error?) -> ()) {
-        let urlString = "https://api.themoviedb.org/4/list/5?page=1&api_key=\(apiKey)"
+    func fetchAiringToday(completion: @escaping (Netflix?, Error?) -> ()) {
+        let urlString = "https://api.themoviedb.org/3/tv/airing_today?api_key=\(apiKey)&language=en-US&page=2"
         fetchGenericJSONData(urlString: urlString, completion: completion)
     }
     
-    func fetchTopGrossingFilms(completion: @escaping (Netflix?, Error?) -> ()) {
-        let urlString = "https://api.themoviedb.org/4/list/10?page=1&api_key=\(apiKey)"
+    func fetchTopTvShows(completion: @escaping (Netflix?, Error?) -> ()) {
+        let urlString = "https://api.themoviedb.org/3/tv/top_rated?api_key=\(apiKey)&language=en-US&page=3"
         fetchGenericJSONData(urlString: urlString, completion: completion)
     }
     
-    func fetchBestHorrorMovies(completion: @escaping (Netflix?, Error?) -> ()) {
-        let urlString = "https://api.themoviedb.org/4/list/44?page=1&api_key=\(apiKey)"
+    func fetchPopularTvShows(completion: @escaping (Netflix?, Error?) -> ()) {
+        let urlString = "https://api.themoviedb.org/3/tv/popular?api_key=\(apiKey)&language=en-US&page=3"
         fetchGenericJSONData(urlString: urlString, completion: completion)
     }
     
     func searchMedia(searchTerm: String, completion: @escaping (Netflix?, Error?) -> ()) {
-        let urlString = "https://api.themoviedb.org/3/search/movie?api_key=\(apiKey)&language=en-US&query=\(searchTerm)&page=2&include_adult=false".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        let urlString = "https://api.themoviedb.org/3/search/tv?api_key=\(apiKey)&language=en-US&query=\(searchTerm)&page=1&include_adult=false".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
       
         fetchGenericJSONData(urlString: urlString!, completion: completion)
+    }
+    
+    func fetchMovieTvDetails(url: String, completion: @escaping (Result?, Error?) ->()) {
+        fetchGenericJSONData(urlString: url, completion: completion)
     }
 }

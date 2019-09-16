@@ -101,42 +101,54 @@ extension HomeController {
         var group4 : Netflix?
         var group5 : Netflix?
         
-        // Fetching Marval Universe
+        // Fetching TopRated
         dispatchGroup.enter()
-        Service.shared.fetchMarvelUniverse { (netflix, error) in
+        Service.shared.fetchTopRated { (netflix, error) in
             print("Fetching Marval Universe...")
             dispatchGroup.leave()
             group1 = netflix
         }
         
-        // Fetching DC Comics
+        // Fetching Top Tv Shows
         dispatchGroup.enter()
-        Service.shared.fetchComics { (netflix, error) in
-            print("Fetching DC Comics...")
+        Service.shared.fetchTopTvShows { (netflix, error) in
+            if let err = error {
+                print(err)
+            }
+            print("Fetching Top Grossing Films...")
             dispatchGroup.leave()
             group2 = netflix
         }
         
-        // Fetching The Avengers
+        // Fetching Popular Tv Shows
         dispatchGroup.enter()
-        Service.shared.fetchTheAvengers { (netflix, error) in
-            print("Fetching The Avengers...")
+        Service.shared.fetchPopularTvShows { (netflix, error) in
+            if let err = error {
+                print(err)
+            }
+            print("Fetching Best Horror Movies...")
             dispatchGroup.leave()
             group3 = netflix
         }
         
-        // Fetching Top Grossing Films
+        // Fetching Airing Today
         dispatchGroup.enter()
-        Service.shared.fetchTopGrossingFilms { (netflix, error) in
-            print("Fetching Top Grossing Films...")
+        Service.shared.fetchAiringToday { (netflix, error) in
+            if let err = error {
+                print(err)
+            }
+            print("Fetching Airing Today...")
             dispatchGroup.leave()
             group4 = netflix
         }
         
-        // Fetching Best Horror Movies
+        // Fetching OnTheAir
         dispatchGroup.enter()
-        Service.shared.fetchBestHorrorMovies { (netflix, error) in
-            print("Fetching Best Horror Movies...")
+        Service.shared.fetchOnTheAir { (netflix, error) in
+            if let err = error {
+                print(err)
+            }
+            print("Fetching OnTheAir...")
             dispatchGroup.leave()
             group5 = netflix
         }
