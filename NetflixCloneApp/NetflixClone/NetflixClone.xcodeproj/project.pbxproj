@@ -14,7 +14,7 @@
 		DD0065E12328737900095028 /* SearchViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0065E02328737900095028 /* SearchViewCell.swift */; };
 		DD19F060232EDA8100305DD5 /* SimilarTvShows.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD19F05F232EDA8100305DD5 /* SimilarTvShows.swift */; };
 		DD19F062232EDC5300305DD5 /* Credit.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD19F061232EDC5300305DD5 /* Credit.swift */; };
-		DD19F064232FDDDD00305DD5 /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD19F063232FDDDD00305DD5 /* Extentions.swift */; };
+		DD19F064232FDDDD00305DD5 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD19F063232FDDDD00305DD5 /* Extension.swift */; };
 		DD19F066232FFD3B00305DD5 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD19F065232FFD3B00305DD5 /* Result.swift */; };
 		DD19F068232FFE0300305DD5 /* ContentRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD19F067232FFE0300305DD5 /* ContentRating.swift */; };
 		DD372C18231D66D000144828 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD372C17231D66D000144828 /* AppDelegate.swift */; };
@@ -61,7 +61,7 @@
 		DD0065E02328737900095028 /* SearchViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewCell.swift; sourceTree = "<group>"; };
 		DD19F05F232EDA8100305DD5 /* SimilarTvShows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimilarTvShows.swift; sourceTree = "<group>"; };
 		DD19F061232EDC5300305DD5 /* Credit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credit.swift; sourceTree = "<group>"; };
-		DD19F063232FDDDD00305DD5 /* Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
+		DD19F063232FDDDD00305DD5 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		DD19F065232FFD3B00305DD5 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		DD19F067232FFE0300305DD5 /* ContentRating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentRating.swift; sourceTree = "<group>"; };
 		DD372C14231D66D000144828 /* NetflixClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetflixClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -250,7 +250,7 @@
 				DD4F7D11231EFAB00070F87D /* VerticalStackView.swift */,
 				DD4F7D15231F10CF0070F87D /* CustomTextField.swift */,
 				DD0065D423267D1A00095028 /* Service.swift */,
-				DD19F063232FDDDD00305DD5 /* Extentions.swift */,
+				DD19F063232FDDDD00305DD5 /* Extension.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -477,7 +477,7 @@
 				DD4F7D16231F10CF0070F87D /* CustomTextField.swift in Sources */,
 				DD692B17231EADF700FEE549 /* HomeHorizontalCell.swift in Sources */,
 				DD692B0C231EACBF00FEE549 /* HomeController.swift in Sources */,
-				DD19F064232FDDDD00305DD5 /* Extentions.swift in Sources */,
+				DD19F064232FDDDD00305DD5 /* Extension.swift in Sources */,
 				DD4F7D13231EFAB00070F87D /* VerticalStackView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -18,6 +18,7 @@ class HomeController: MainListController {
     
     let loginBtn = UIBarButtonItem()
     var netflix = [Netflix]()
+    let netflixTitles = ["Top Rated", "Top TV Shows","Popular TV Shows","Airing Today", "On The Air"]
     
     fileprivate let activityIndicator: UIActivityIndicatorView = {
         let av = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.large)
@@ -35,12 +36,12 @@ class HomeController: MainListController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        collectionView.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        collectionView.backgroundColor = #colorLiteral(red: 0.09331475943, green: 0.09813781828, blue: 0.1023981199, alpha: 1)
         collectionView.register(HomeViewCell.self, forCellWithReuseIdentifier: cellId)
         collectionView.alwaysBounceVertical = true
         collectionView.bounces = true
         navigationItem.title = "NETFLIX"
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.init(red: 0.8980392157, green: 0.03921568627, blue: 0.07450980392, alpha: 1), NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 24)]
+        
         loginBtn.target = self
         loginBtn.action = #selector(handleLoginBtn)
         loginBtn.title = "login"
@@ -69,14 +70,17 @@ extension HomeController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! HomeViewCell
         
+        cell.title.text = netflixTitles[indexPath.item]
         let netflixOne = netflix[indexPath.item]
-        if let name  = netflixOne.name {
-            cell.title.text = name
-        } else {
-            cell.title.text = "Popular on Netflix"
-        }
         cell.homeHorizontalController.netflix = netflixOne
         cell.homeHorizontalController.collectionView.reloadData()
+        
+        cell.homeHorizontalController.didSelectHandler = { result in
+            let movieTVDetailController = MovieTVDetailController(movieTvId: result.id)
+            print(result.id)
+            self.present(movieTVDetailController, animated: true)
+            
+        }
         return cell
     }
 }
