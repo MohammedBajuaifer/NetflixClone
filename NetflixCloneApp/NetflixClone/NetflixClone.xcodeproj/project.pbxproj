@@ -17,6 +17,9 @@
 		DD19F064232FDDDD00305DD5 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD19F063232FDDDD00305DD5 /* Extension.swift */; };
 		DD19F066232FFD3B00305DD5 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD19F065232FFD3B00305DD5 /* Result.swift */; };
 		DD19F068232FFE0300305DD5 /* ContentRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD19F067232FFE0300305DD5 /* ContentRating.swift */; };
+		DD19F06A23314CE800305DD5 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD19F06923314CE800305DD5 /* Test.swift */; };
+		DD19F06D23315B8E00305DD5 /* TvShowInfoDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD19F06C23315B8E00305DD5 /* TvShowInfoDataSource.swift */; };
+		DD19F071233160D500305DD5 /* SearchDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD19F070233160D500305DD5 /* SearchDataSource.swift */; };
 		DD372C18231D66D000144828 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD372C17231D66D000144828 /* AppDelegate.swift */; };
 		DD372C1A231D66D000144828 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD372C19231D66D000144828 /* SceneDelegate.swift */; };
 		DD372C1E231D66D100144828 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD372C1D231D66D100144828 /* Assets.xcassets */; };
@@ -64,6 +67,9 @@
 		DD19F063232FDDDD00305DD5 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		DD19F065232FFD3B00305DD5 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		DD19F067232FFE0300305DD5 /* ContentRating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentRating.swift; sourceTree = "<group>"; };
+		DD19F06923314CE800305DD5 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
+		DD19F06C23315B8E00305DD5 /* TvShowInfoDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvShowInfoDataSource.swift; sourceTree = "<group>"; };
+		DD19F070233160D500305DD5 /* SearchDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDataSource.swift; sourceTree = "<group>"; };
 		DD372C14231D66D000144828 /* NetflixClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetflixClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD372C17231D66D000144828 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD372C19231D66D000144828 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -144,6 +150,31 @@
 			path = Search;
 			sourceTree = "<group>";
 		};
+		DD19F06B23315B5900305DD5 /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				DD19F06F233160AA00305DD5 /* Search TV Shows */,
+				DD19F06E23315B9600305DD5 /* TvDetails */,
+			);
+			path = DataSource;
+			sourceTree = "<group>";
+		};
+		DD19F06E23315B9600305DD5 /* TvDetails */ = {
+			isa = PBXGroup;
+			children = (
+				DD19F06C23315B8E00305DD5 /* TvShowInfoDataSource.swift */,
+			);
+			path = TvDetails;
+			sourceTree = "<group>";
+		};
+		DD19F06F233160AA00305DD5 /* Search TV Shows */ = {
+			isa = PBXGroup;
+			children = (
+				DD19F070233160D500305DD5 /* SearchDataSource.swift */,
+			);
+			path = "Search TV Shows";
+			sourceTree = "<group>";
+		};
 		DD372C0B231D66D000144828 = {
 			isa = PBXGroup;
 			children = (
@@ -172,6 +203,7 @@
 				DD372C2E231D68B000144828 /* API */,
 				DD372C2C231D689E00144828 /* Models */,
 				DD372C2D231D68AC00144828 /* Views */,
+				DD19F06B23315B5900305DD5 /* DataSource */,
 				DD372C2B231D689500144828 /* Controllers */,
 				DD372C17231D66D000144828 /* AppDelegate.swift */,
 				DD372C19231D66D000144828 /* SceneDelegate.swift */,
@@ -460,6 +492,7 @@
 				DD372C1A231D66D000144828 /* SceneDelegate.swift in Sources */,
 				DD692B15231EADEB00FEE549 /* HomeViewCell.swift in Sources */,
 				DD8872052329B1BD00454D50 /* MovieTvCell.swift in Sources */,
+				DD19F071233160D500305DD5 /* SearchDataSource.swift in Sources */,
 				DD19F066232FFD3B00305DD5 /* Result.swift in Sources */,
 				DD0065D72327CCDE00095028 /* Netflix.swift in Sources */,
 				DD692B0E231EAD2800FEE549 /* MainListController.swift in Sources */,
@@ -473,10 +506,12 @@
 				DD692B1C231EAE9800FEE549 /* HomeHorizontalController.swift in Sources */,
 				DD0065E12328737900095028 /* SearchViewCell.swift in Sources */,
 				DD19F060232EDA8100305DD5 /* SimilarTvShows.swift in Sources */,
+				DD19F06A23314CE800305DD5 /* Test.swift in Sources */,
 				DD0065DE232858DB00095028 /* SearchController.swift in Sources */,
 				DD4F7D16231F10CF0070F87D /* CustomTextField.swift in Sources */,
 				DD692B17231EADF700FEE549 /* HomeHorizontalCell.swift in Sources */,
 				DD692B0C231EACBF00FEE549 /* HomeController.swift in Sources */,
+				DD19F06D23315B8E00305DD5 /* TvShowInfoDataSource.swift in Sources */,
 				DD19F064232FDDDD00305DD5 /* Extension.swift in Sources */,
 				DD4F7D13231EFAB00070F87D /* VerticalStackView.swift in Sources */,
 			);
