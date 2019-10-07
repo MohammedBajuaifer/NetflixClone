@@ -12,14 +12,25 @@
 		DD0065D72327CCDE00095028 /* Netflix.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0065D62327CCDE00095028 /* Netflix.swift */; };
 		DD0065DE232858DB00095028 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0065DD232858DB00095028 /* SearchController.swift */; };
 		DD0065E12328737900095028 /* SearchViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0065E02328737900095028 /* SearchViewCell.swift */; };
+		DD09429A233927CC009805C7 /* HorizontalSeasonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD094299233927CC009805C7 /* HorizontalSeasonCell.swift */; };
+		DD09429C23392955009805C7 /* SeasonsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD09429B23392955009805C7 /* SeasonsDataSource.swift */; };
+		DD09429E23392B0D009805C7 /* Season.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD09429D23392B0D009805C7 /* Season.swift */; };
+		DD0942A0233ADAB8009805C7 /* HorizontalSeasonController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD09429F233ADAB8009805C7 /* HorizontalSeasonController.swift */; };
+		DD0942A2233B856F009805C7 /* EpisodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0942A1233B856F009805C7 /* EpisodeCell.swift */; };
+		DD0942A4233B85BF009805C7 /* EpisodeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0942A3233B85BF009805C7 /* EpisodeController.swift */; };
 		DD19F060232EDA8100305DD5 /* SimilarTvShows.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD19F05F232EDA8100305DD5 /* SimilarTvShows.swift */; };
 		DD19F062232EDC5300305DD5 /* Credit.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD19F061232EDC5300305DD5 /* Credit.swift */; };
 		DD19F064232FDDDD00305DD5 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD19F063232FDDDD00305DD5 /* Extension.swift */; };
 		DD19F066232FFD3B00305DD5 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD19F065232FFD3B00305DD5 /* Result.swift */; };
 		DD19F068232FFE0300305DD5 /* ContentRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD19F067232FFE0300305DD5 /* ContentRating.swift */; };
-		DD19F06A23314CE800305DD5 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD19F06923314CE800305DD5 /* Test.swift */; };
 		DD19F06D23315B8E00305DD5 /* TvShowInfoDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD19F06C23315B8E00305DD5 /* TvShowInfoDataSource.swift */; };
 		DD19F071233160D500305DD5 /* SearchDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD19F070233160D500305DD5 /* SearchDataSource.swift */; };
+		DD19F0772332868E00305DD5 /* LatestTvShowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD19F0762332868E00305DD5 /* LatestTvShowController.swift */; };
+		DD19F07923328B5F00305DD5 /* LatestTvShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD19F07823328B5F00305DD5 /* LatestTvShow.swift */; };
+		DD19F07B23328D1A00305DD5 /* LatestTvShowHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD19F07A23328D1A00305DD5 /* LatestTvShowHeaderCell.swift */; };
+		DD19F07D23328F5D00305DD5 /* TvShowHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD19F07C23328F5D00305DD5 /* TvShowHeader.swift */; };
+		DD19F081233293E400305DD5 /* SeasonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD19F080233293E400305DD5 /* SeasonCell.swift */; };
+		DD19F0842337DD4B00305DD5 /* TestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD19F0832337DD4B00305DD5 /* TestTableViewCell.swift */; };
 		DD372C18231D66D000144828 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD372C17231D66D000144828 /* AppDelegate.swift */; };
 		DD372C1A231D66D000144828 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD372C19231D66D000144828 /* SceneDelegate.swift */; };
 		DD372C1E231D66D100144828 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD372C1D231D66D100144828 /* Assets.xcassets */; };
@@ -42,6 +53,7 @@
 		DD8872052329B1BD00454D50 /* MovieTvCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8872042329B1BD00454D50 /* MovieTvCell.swift */; };
 		DD8872072329B39D00454D50 /* HorizontalCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8872062329B39D00454D50 /* HorizontalCollectionViewController.swift */; };
 		DD88720F232C0E6B00454D50 /* NetflixCloneUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD88720E232C0E6B00454D50 /* NetflixCloneUITests.swift */; };
+		DDCA3C4C234B207B00641157 /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCA3C4B234B207B00641157 /* Episode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,14 +74,25 @@
 		DD0065D62327CCDE00095028 /* Netflix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Netflix.swift; sourceTree = "<group>"; };
 		DD0065DD232858DB00095028 /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
 		DD0065E02328737900095028 /* SearchViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewCell.swift; sourceTree = "<group>"; };
+		DD094299233927CC009805C7 /* HorizontalSeasonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalSeasonCell.swift; sourceTree = "<group>"; };
+		DD09429B23392955009805C7 /* SeasonsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonsDataSource.swift; sourceTree = "<group>"; };
+		DD09429D23392B0D009805C7 /* Season.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Season.swift; sourceTree = "<group>"; };
+		DD09429F233ADAB8009805C7 /* HorizontalSeasonController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalSeasonController.swift; sourceTree = "<group>"; };
+		DD0942A1233B856F009805C7 /* EpisodeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeCell.swift; sourceTree = "<group>"; };
+		DD0942A3233B85BF009805C7 /* EpisodeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeController.swift; sourceTree = "<group>"; };
 		DD19F05F232EDA8100305DD5 /* SimilarTvShows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimilarTvShows.swift; sourceTree = "<group>"; };
 		DD19F061232EDC5300305DD5 /* Credit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credit.swift; sourceTree = "<group>"; };
 		DD19F063232FDDDD00305DD5 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		DD19F065232FFD3B00305DD5 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		DD19F067232FFE0300305DD5 /* ContentRating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentRating.swift; sourceTree = "<group>"; };
-		DD19F06923314CE800305DD5 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		DD19F06C23315B8E00305DD5 /* TvShowInfoDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvShowInfoDataSource.swift; sourceTree = "<group>"; };
 		DD19F070233160D500305DD5 /* SearchDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDataSource.swift; sourceTree = "<group>"; };
+		DD19F0762332868E00305DD5 /* LatestTvShowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestTvShowController.swift; sourceTree = "<group>"; };
+		DD19F07823328B5F00305DD5 /* LatestTvShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestTvShow.swift; sourceTree = "<group>"; };
+		DD19F07A23328D1A00305DD5 /* LatestTvShowHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestTvShowHeaderCell.swift; sourceTree = "<group>"; };
+		DD19F07C23328F5D00305DD5 /* TvShowHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvShowHeader.swift; sourceTree = "<group>"; };
+		DD19F080233293E400305DD5 /* SeasonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonCell.swift; sourceTree = "<group>"; };
+		DD19F0832337DD4B00305DD5 /* TestTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTableViewCell.swift; sourceTree = "<group>"; };
 		DD372C14231D66D000144828 /* NetflixClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetflixClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD372C17231D66D000144828 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD372C19231D66D000144828 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -96,6 +119,7 @@
 		DD88720C232C0E6B00454D50 /* NetflixCloneUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NetflixCloneUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD88720E232C0E6B00454D50 /* NetflixCloneUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetflixCloneUITests.swift; sourceTree = "<group>"; };
 		DD887210232C0E6B00454D50 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DDCA3C4B234B207B00641157 /* Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				DD19F06C23315B8E00305DD5 /* TvShowInfoDataSource.swift */,
+				DD09429B23392955009805C7 /* SeasonsDataSource.swift */,
 			);
 			path = TvDetails;
 			sourceTree = "<group>";
@@ -173,6 +198,14 @@
 				DD19F070233160D500305DD5 /* SearchDataSource.swift */,
 			);
 			path = "Search TV Shows";
+			sourceTree = "<group>";
+		};
+		DD19F0822337DD2F00305DD5 /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				DD19F0832337DD4B00305DD5 /* TestTableViewCell.swift */,
+			);
+			path = Test;
 			sourceTree = "<group>";
 		};
 		DD372C0B231D66D000144828 = {
@@ -226,6 +259,7 @@
 		DD372C2B231D689500144828 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				DDCA3C46234A4D4100641157 /* Download */,
 				DD8871FE23299EDD00454D50 /* Details */,
 				DD0065DA232858AA00095028 /* Search */,
 				DD4F7D0D231EFA620070F87D /* Auth */,
@@ -241,10 +275,13 @@
 			isa = PBXGroup;
 			children = (
 				DD0065D62327CCDE00095028 /* Netflix.swift */,
-				DD19F05F232EDA8100305DD5 /* SimilarTvShows.swift */,
-				DD19F061232EDC5300305DD5 /* Credit.swift */,
 				DD19F065232FFD3B00305DD5 /* Result.swift */,
+				DD19F061232EDC5300305DD5 /* Credit.swift */,
+				DD19F05F232EDA8100305DD5 /* SimilarTvShows.swift */,
 				DD19F067232FFE0300305DD5 /* ContentRating.swift */,
+				DD19F07823328B5F00305DD5 /* LatestTvShow.swift */,
+				DD09429D23392B0D009805C7 /* Season.swift */,
+				DDCA3C4B234B207B00641157 /* Episode.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -292,6 +329,8 @@
 			children = (
 				DD692B14231EADEB00FEE549 /* HomeViewCell.swift */,
 				DD692B16231EADF700FEE549 /* HomeHorizontalCell.swift */,
+				DD19F07A23328D1A00305DD5 /* LatestTvShowHeaderCell.swift */,
+				DD19F07C23328F5D00305DD5 /* TvShowHeader.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -301,6 +340,7 @@
 			children = (
 				DD692B0B231EACBF00FEE549 /* HomeController.swift */,
 				DD692B1B231EAE9800FEE549 /* HomeHorizontalController.swift */,
+				DD19F0762332868E00305DD5 /* LatestTvShowController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -318,6 +358,8 @@
 			isa = PBXGroup;
 			children = (
 				DD8872012329A7E000454D50 /* MovieTVDetailController.swift */,
+				DD09429F233ADAB8009805C7 /* HorizontalSeasonController.swift */,
+				DD0942A3233B85BF009805C7 /* EpisodeController.swift */,
 			);
 			path = Details;
 			sourceTree = "<group>";
@@ -325,7 +367,11 @@
 		DD8872032329B19100454D50 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
+				DD19F0822337DD2F00305DD5 /* Test */,
 				DD8872042329B1BD00454D50 /* MovieTvCell.swift */,
+				DD19F080233293E400305DD5 /* SeasonCell.swift */,
+				DD094299233927CC009805C7 /* HorizontalSeasonCell.swift */,
+				DD0942A1233B856F009805C7 /* EpisodeCell.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -337,6 +383,13 @@
 				DD887210232C0E6B00454D50 /* Info.plist */,
 			);
 			path = NetflixCloneUITests;
+			sourceTree = "<group>";
+		};
+		DDCA3C46234A4D4100641157 /* Download */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Download;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -489,9 +542,14 @@
 				DD8872072329B39D00454D50 /* HorizontalCollectionViewController.swift in Sources */,
 				DD372C18231D66D000144828 /* AppDelegate.swift in Sources */,
 				DD0065D523267D1A00095028 /* Service.swift in Sources */,
+				DD19F07D23328F5D00305DD5 /* TvShowHeader.swift in Sources */,
+				DD19F081233293E400305DD5 /* SeasonCell.swift in Sources */,
+				DD0942A2233B856F009805C7 /* EpisodeCell.swift in Sources */,
+				DD09429A233927CC009805C7 /* HorizontalSeasonCell.swift in Sources */,
 				DD372C1A231D66D000144828 /* SceneDelegate.swift in Sources */,
 				DD692B15231EADEB00FEE549 /* HomeViewCell.swift in Sources */,
 				DD8872052329B1BD00454D50 /* MovieTvCell.swift in Sources */,
+				DD19F07923328B5F00305DD5 /* LatestTvShow.swift in Sources */,
 				DD19F071233160D500305DD5 /* SearchDataSource.swift in Sources */,
 				DD19F066232FFD3B00305DD5 /* Result.swift in Sources */,
 				DD0065D72327CCDE00095028 /* Netflix.swift in Sources */,
@@ -502,18 +560,25 @@
 				DD19F062232EDC5300305DD5 /* Credit.swift in Sources */,
 				DD372C30231D68F700144828 /* MainTabBarController.swift in Sources */,
 				DD8872022329A7E000454D50 /* MovieTVDetailController.swift in Sources */,
+				DD0942A0233ADAB8009805C7 /* HorizontalSeasonController.swift in Sources */,
 				DD4F7D14231EFAB00070F87D /* UIView+Layout.swift in Sources */,
+				DD19F0842337DD4B00305DD5 /* TestTableViewCell.swift in Sources */,
+				DD0942A4233B85BF009805C7 /* EpisodeController.swift in Sources */,
 				DD692B1C231EAE9800FEE549 /* HomeHorizontalController.swift in Sources */,
 				DD0065E12328737900095028 /* SearchViewCell.swift in Sources */,
+				DD19F07B23328D1A00305DD5 /* LatestTvShowHeaderCell.swift in Sources */,
 				DD19F060232EDA8100305DD5 /* SimilarTvShows.swift in Sources */,
-				DD19F06A23314CE800305DD5 /* Test.swift in Sources */,
+				DD09429C23392955009805C7 /* SeasonsDataSource.swift in Sources */,
 				DD0065DE232858DB00095028 /* SearchController.swift in Sources */,
 				DD4F7D16231F10CF0070F87D /* CustomTextField.swift in Sources */,
 				DD692B17231EADF700FEE549 /* HomeHorizontalCell.swift in Sources */,
+				DDCA3C4C234B207B00641157 /* Episode.swift in Sources */,
 				DD692B0C231EACBF00FEE549 /* HomeController.swift in Sources */,
+				DD09429E23392B0D009805C7 /* Season.swift in Sources */,
 				DD19F06D23315B8E00305DD5 /* TvShowInfoDataSource.swift in Sources */,
 				DD19F064232FDDDD00305DD5 /* Extension.swift in Sources */,
 				DD4F7D13231EFAB00070F87D /* VerticalStackView.swift in Sources */,
+				DD19F0772332868E00305DD5 /* LatestTvShowController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

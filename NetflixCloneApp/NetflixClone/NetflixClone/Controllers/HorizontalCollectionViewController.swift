@@ -14,6 +14,10 @@ class HorizontalCollectionViewController: UICollectionViewController {
     
     init() {
         super.init(collectionViewLayout: UICollectionViewFlowLayout())
+        
+        if let layout = collectionViewLayout as? UICollectionViewFlowLayout {
+            layout.scrollDirection = .horizontal
+        }
         collectionView.showsHorizontalScrollIndicator = false
     }
     
