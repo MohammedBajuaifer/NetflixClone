@@ -13,10 +13,9 @@ import Kingfisher
 class HomeController: MainListController {
     
     // MARK: - Properties
-    
     fileprivate let cellId = "cellId"
-    
     let loginBtn = UIBarButtonItem()
+    var latestTvShow: LatestTvShow?
     var netflix = [Netflix]()
     let netflixTitles = ["Top Rated", "Top TV Shows","Popular TV Shows","Airing Today", "On The Air"]
     
@@ -28,16 +27,13 @@ class HomeController: MainListController {
         return av
     }()
     
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
-    
     // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         
         collectionView.backgroundColor = #colorLiteral(red: 0.09331475943, green: 0.09813781828, blue: 0.1023981199, alpha: 1)
         collectionView.register(HomeViewCell.self, forCellWithReuseIdentifier: cellId)
+        collectionView.register(LatestTvShowHeaderCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "headerId")
         collectionView.alwaysBounceVertical = true
         collectionView.bounces = true
         navigationItem.title = "NETFLIX"
@@ -59,6 +55,21 @@ class HomeController: MainListController {
     }
 }
 
+// MARK: - Header Datasource + Delegate
+extension HomeController {
+    
+    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "headerId", for: indexPath) as! LatestTvShowHeaderCell
+        return header
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return .init(width: view.frame.width, height: 250)
+    }
+    
+}
+
+
 // MARK: - DataSource & Delegates
 
 extension HomeController {
@@ -79,7 +90,6 @@ extension HomeController {
             let movieTVDetailController = MovieTVDetailController(movieTvId: result.id)
             print(result.id)
             self.present(movieTVDetailController, animated: true)
-            
         }
         return cell
     }
@@ -99,11 +109,21 @@ extension HomeController {
     func fetch() {
         
         let dispatchGroup = DispatchGroup()
-        var group1 : Netflix?
-        var group2 : Netflix?
-        var group3 : Netflix?
-        var group4 : Netflix?
-        var group5 : Netflix?
+//        var latestTvShowGroup: LatestTvShow?
+        var group1: Netflix?
+        var group2: Netflix?
+        var group3: Netflix?
+        var group4: Netflix?
+        var group5: Netflix?
+        
+        
+        // Fetch Latest Tv Show
+//        dispatchGroup.enter()
+//        Service.shared.fetchLatestTvShow { (tvShow, error) in
+//            print("Fetching latest Tv Show")
+//            dispatchGroup.leave()
+//            latestTvShowGroup = tvShow
+//        }
         
         // Fetching TopRated
         dispatchGroup.enter()
@@ -162,6 +182,10 @@ extension HomeController {
             print("Finish fetching all Tasks...")
             
             self.activityIndicator.stopAnimating()
+            
+//            if let group = latestTvShowGroup {
+//                self.latestTvShow = group
+//            }
             
             if let group = group1 {
                 self.netflix.append(group)
