@@ -18,8 +18,20 @@ extension String {
         }
         return date
     }
+    
+    func maxLength(length: Int) -> String {
+        var str = self
+        let nsString = str as NSString
+        if nsString.length >= length {
+            str = nsString.substring(with:
+                NSRange(
+                    location: 0,
+                    length: nsString.length > length ? length : nsString.length)
+            )
+        }
+        return  str
+    }
 }
-
 extension UILabel {
     convenience init(text: String, font: UIFont, numberOfLines: Int, textColor: UIColor) {
         self.init(frame: .zero)
@@ -62,5 +74,16 @@ extension UIButton {
             right: 0.0
         )
     }
-    
+}
+
+extension UIImageView {
+   
+    func addBlurEffect() {
+        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.extraLight)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = self.bounds
+        
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight] // for supporting device rotation
+        self.addSubview(blurEffectView)
+    }
 }
