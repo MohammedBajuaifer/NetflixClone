@@ -36,6 +36,12 @@ class Service: NSObject {
         }.resume()
     }
     
+    // Fetching Latest TV show
+    func fetchLatestTvShow(completion: @escaping (LatestTvShow?, Error?) -> ()) {
+        let urlString = "https://api.themoviedb.org/3/tv/latest?api_key=\(apiKey)&language=en-US"
+        fetchGenericJSONData(urlString: urlString, completion: completion)
+    }
+    
     // Fetching Top Rated
     func fetchTopRated(completion: @escaping (Netflix?, Error?) -> ()) {
             let urlString = "https://api.themoviedb.org/3/tv/top_rated?api_key=\(apiKey)&language=en-US&page=1"
@@ -72,4 +78,8 @@ class Service: NSObject {
     func fetchMovieTvDetails(url: String, completion: @escaping (Result?, Error?) ->()) {
         fetchGenericJSONData(urlString: url, completion: completion)
     }
+    
+    func fetchEpisodes(url: String, completion: @escaping (Episode?, Error?) ->()) {
+           fetchGenericJSONData(urlString: url, completion: completion)
+       }
 }
