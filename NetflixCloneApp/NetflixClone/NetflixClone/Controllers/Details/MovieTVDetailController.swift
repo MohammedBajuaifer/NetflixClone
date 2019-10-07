@@ -29,11 +29,18 @@ class MovieTVDetailController: MainListController {
     // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionView.backgroundColor = #colorLiteral(red: 0.04700054973, green: 0.05029480904, blue: 0.09337023646, alpha: 1)
+        collectionViewSetup()
+        TvDataSource()
+    }
+    
+    fileprivate func collectionViewSetup() {
+        collectionView.backgroundColor = .red
         collectionView.register(MovieTvCell.self, forCellWithReuseIdentifier: cellId)
+        collectionView.register(SeasonCell.self, forCellWithReuseIdentifier: "seasonCellId")
+        collectionView.register(EpisodeCell.self, forCellWithReuseIdentifier: "episodeCellID")
+
         collectionView.bounces = true
         collectionView.alwaysBounceVertical = true
-        TvDataSource()
     }
     
     fileprivate func TvDataSource() {
@@ -51,6 +58,17 @@ class MovieTVDetailController: MainListController {
 extension MovieTVDetailController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return .init(width: view.frame.width, height: view.frame.height)
+
+        if indexPath.item == 0 {
+            return CGSize(width: view.frame.width, height: 650)
+        } else if indexPath.item == 1 {
+            return CGSize(width: view.frame.width, height: 50)
+        } else {
+            return CGSize(width: view.frame.width, height: view.frame.height)
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0 
     }
 }

@@ -13,7 +13,6 @@ class SearchController: MainListController {
     // MARK: - Properties
     fileprivate let cellId = "cellId"
     fileprivate var dataSource = SearchDataSource()
-    fileprivate var delegate = SearchDelegate()
     
     fileprivate let activityIndicator: UIActivityIndicatorView = {
         let av = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.large)

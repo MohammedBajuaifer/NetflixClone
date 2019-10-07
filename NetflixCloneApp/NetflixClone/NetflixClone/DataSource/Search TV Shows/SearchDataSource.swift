@@ -17,6 +17,7 @@ class SearchDataSource: NSObject, UICollectionViewDataSource, UICollectionViewDe
     var didChangeHandler: (() -> Void)?
     var textDidChange: (() -> Void)?
     
+    // MARK: - DataSource Methods
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return results.count
     }
@@ -34,6 +35,8 @@ class SearchDataSource: NSObject, UICollectionViewDataSource, UICollectionViewDe
     }
 }
 
+
+//MARK: - SearchController
 extension SearchDataSource: UISearchResultsUpdating {
     
     func updateSearchResults(for searchController: UISearchController) {

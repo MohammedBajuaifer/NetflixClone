@@ -13,6 +13,5 @@ struct Netflix: Decodable {
     let results: [Result]
 }
 
-struct Season: Decodable {}
 
 
