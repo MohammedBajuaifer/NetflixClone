@@ -8,18 +8,6 @@
 
 import UIKit
 
-extension UIImageView
-{
-    func addBlurEffect()
-    {
-        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.extraLight)
-        let blurEffectView = UIVisualEffectView(effect: blurEffect)
-        blurEffectView.frame = self.bounds
-        
-        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight] // for supporting device rotation
-        self.addSubview(blurEffectView)
-    }
-}
 class MovieTvCell: UICollectionViewCell {
     
     let movieTVTitle = UILabel(text: "Movie/TV Title", font: .boldSystemFont(ofSize: 16), numberOfLines: 1, textColor: .white)
@@ -35,14 +23,16 @@ class MovieTvCell: UICollectionViewCell {
     let movieTVBackgroupPoster: UIImageView = {
         let poster = UIImageView()
         poster.addBlurEffect()
-        poster.contentMode = .scaleAspectFit
-        poster.alpha = 0.1
+        poster.contentMode = .scaleAspectFill
+        poster.alpha = 0.3
         return poster
     }()
     
     let releaseDate = UILabel(text: "2017", font: .systemFont(ofSize: 14), numberOfLines: 1, textColor: .lightGray)
     let forWhom = UILabel(text: "+16", font: .systemFont(ofSize: 14), numberOfLines: 1, textColor: .lightGray)
     let duration = UILabel(text: "3 Seasons", font: .systemFont(ofSize: 14), numberOfLines: 1, textColor: .lightGray)
+    
+    let status = UILabel(text: "Ended", font: UIFont(name: "Roboto-Bold", size: 17)!, numberOfLines: 1, textColor: .white)
     
     let playButton: UIButton = {
         let btn = UIButton(type: .system)
@@ -92,16 +82,10 @@ class MovieTvCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        //        movieTVTitle.backgroundColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
-        //        movieTVTitle.textAlignment = .center
-        
-        let buttonsStackView = UIStackView(arrangedSubviews: [
-            addToListButton, rateButton, shareButton, UIView()
-        ])
-        buttonsStackView.distribution = .fillEqually
-        buttonsStackView.alignment = .leading
-        buttonsStackView.spacing = 10
+
+        movieTVTitle.constrainWidth(constant: frame.width)
+        movieTVTitle.textAlignment = .center
+        status.textAlignment = .center
         
         let stackView = UIStackView(arrangedSubviews: [
             releaseDate,
@@ -112,12 +96,19 @@ class MovieTvCell: UICollectionViewCell {
         stackView.spacing = 10
         
         let verticalStackView = VerticalStackView(arrangedSubviews: [
+            status,
             playButton,
             overview,
             castsInfo,
         ], spacing: 10)
         
+        let buttonsStackView = UIStackView(arrangedSubviews: [
+            addToListButton, rateButton, shareButton, UIView()
+        ])
         
+        buttonsStackView.distribution = .fillEqually
+        buttonsStackView.alignment = .leading
+        buttonsStackView.spacing = 10
         
         addSubview(movieTVTitle)
         addSubview(movieTVBackgroupPoster)
@@ -126,20 +117,20 @@ class MovieTvCell: UICollectionViewCell {
         addSubview(verticalStackView)
         addSubview(buttonsStackView)
         
-        movieTVBackgroupPoster.fillSuperview()
-        movieTVTitle.centerXInSuperview()
+        
+        movieTVBackgroupPoster.anchor(top: topAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor)
+        movieTVTitle.anchor(top: topAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor)
         movieTVTitle.constrainHeight(constant: 40)
         
         movieTVPoster.centerXInSuperview()
         movieTVPoster.anchor(top: movieTVTitle.bottomAnchor, leading: nil, bottom: nil, trailing: nil, padding: .init(top: 30, left: 0, bottom: 0, right: 0))
         
-        //        stackView.constrainWidth(constant: 150)
         stackView.anchor(top: movieTVPoster.bottomAnchor, leading: nil, bottom: nil, trailing: nil, padding: .init(top: 15, left: 0, bottom: 0, right: 0))
         stackView.centerXInSuperview()
         
         verticalStackView.anchor(top: stackView.bottomAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: .init(top: 20, left: 15, bottom: 0, right: 15))
-        
-        buttonsStackView.anchor(top: verticalStackView.bottomAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: .init(top: 30, left: 0, bottom: 0, right: 0))
+
+        buttonsStackView.anchor(top: verticalStackView.bottomAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top: 30, left: 0, bottom: 0, right: 0))
     }
     override func layoutSubviews() {
         addToListButton.centerVertically()
